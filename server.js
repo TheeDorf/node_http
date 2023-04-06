@@ -20,15 +20,15 @@ http.createServer((req,res)=>{
     if(method == 'POST'){
         
         if ( url == "/"){
+            req.statusCode = 202;
             res.write("<h1>Wild Card</h1>");
             res.write(JSON.stringify(responseBody));
             console.log("home route");
-            req.statusCode = 202;
             
         } else{
+            req.statusCode = 404;
             res.write("<h1>page not found</h1>")
             console.log("error route")
-            req.statusCode = 404;
             
         }
         res.end()
@@ -36,13 +36,13 @@ http.createServer((req,res)=>{
     });
 
     if (url =="/about"){
-        res.write("My name is AJ and I am not a backend fan")
         req.statusCode = 202;
+        res.write("My name is AJ and I am not a backend fan")
        res.end()
     } else if (url == "/echo"){
+        req.statusCode = 206;
         res.write("this page is working fine but only has a little content ");
         res.write(JSON.stringify(responseBody));
-        req.statusCode = 206;
 
         res.end()
     }
