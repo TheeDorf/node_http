@@ -40,7 +40,8 @@ http.createServer((req,res)=>{
         req.statusCode = 202;
        res.end()
     } else if (url == "/echo"){
-        res.write("this page is working fine but only has a little content ")
+        res.write("this page is working fine but only has a little content ");
+        res.write(JSON.stringify(responseBody));
         req.statusCode = 206;
 
         res.end()
