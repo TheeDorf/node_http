@@ -38,14 +38,13 @@ http.createServer((req,res)=>{
     if (url =="/about"){
         res.write("My name is AJ and I am not a backend fan")
         req.statusCode = 202;
-       res.end();
+       res.end()
     } else if (url == "/echo"){
         res.write("this page is working fine but only has a little content ")
         req.statusCode = 206;
 
         res.end()
     }
-
 
     })
 
